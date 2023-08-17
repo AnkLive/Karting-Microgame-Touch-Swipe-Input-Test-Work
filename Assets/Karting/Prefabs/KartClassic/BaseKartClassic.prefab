@@ -136,8 +136,12 @@ GameObject:
   - component: {fileID: 4895846115232909978}
   - component: {fileID: 4895846115232909977}
   - component: {fileID: 4895846115232909981}
+<<<<<<< HEAD
   - component: {fileID: 81521332543618345}
   - component: {fileID: 4162503244866143481}
+=======
+  - component: {fileID: 7341330589500240362}
+>>>>>>> f7bb07d (init commit)
   - component: {fileID: 4895846115232909958}
   - component: {fileID: 4895846115232909976}
   m_Layer: 2
@@ -262,6 +266,7 @@ MonoBehaviour:
   rearRightWheel:
     wheelTransform: {fileID: 0}
     wheelCollider: {fileID: 4895846115625279582}
+<<<<<<< HEAD
 --- !u!114 &81521332543618345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4162503244866143481
+=======
+--- !u!114 &7341330589500240362
+>>>>>>> f7bb07d (init commit)
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,7 +297,10 @@ MonoBehaviour:
   TurnInputName: Horizontal
   AccelerateButtonName: Accelerate
   BrakeButtonName: Brake
+<<<<<<< HEAD
   SwipeDirection: {x: 0, y: 0}
+=======
+>>>>>>> f7bb07d (init commit)
 --- !u!114 &4895846115232909958
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11314,7 +11314,11 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207105314}
+<<<<<<< HEAD
   m_Enabled: 1
+=======
+  m_Enabled: 0
+>>>>>>> f7bb07d (init commit)
 --- !u!20 &1207105318
 Camera:
   m_ObjectHideFlags: 0
@@ -12168,10 +12172,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 5592460633215926, guid: 19954de30401f73428254541a9ad156e, type: 3}
       propertyPath: speed
       value: 22
       objectReference: {fileID: 0}
+=======
+>>>>>>> f7bb07d (init commit)
     - target: {fileID: 4810912518991602691, guid: 19954de30401f73428254541a9ad156e,
         type: 3}
       propertyPath: m_Name
@@ -12232,6 +12239,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 4810912518991602694, guid: 19954de30401f73428254541a9ad156e,
         type: 3}
       propertyPath: baseStats.Steer
@@ -12245,6 +12253,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4810912518991602695, guid: 19954de30401f73428254541a9ad156e, type: 3}
     - {fileID: 8739487584909107122, guid: 19954de30401f73428254541a9ad156e, type: 3}
+=======
+    m_RemovedComponents:
+    - {fileID: 4810912518991602695, guid: 19954de30401f73428254541a9ad156e, type: 3}
+>>>>>>> f7bb07d (init commit)
   m_SourcePrefab: {fileID: 100100000, guid: 19954de30401f73428254541a9ad156e, type: 3}
 --- !u!4 &1304724376 stripped
 Transform:
@@ -15919,7 +15931,11 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 1939f7149c0fae14a891ac314cb2e8f3, type: 3}
   m_PlayOnAwake: 1
+<<<<<<< HEAD
   m_Volume: 0
+=======
+  m_Volume: 0.4
+>>>>>>> f7bb07d (init commit)
   m_Pitch: 1
   Loop: 1
   Mute: 0
