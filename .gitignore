@@ -51,26 +51,27 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-/[Aa]ssets/Animations
-/[Aa]ssets/Art
-/[Aa]ssets/Audio
-/[Aa]ssets/ModularTrackKit
-/[Aa]ssets/PhysicsMaterials
-/[Aa]ssets/ScriptableObjects
-/[Aa]ssets/Timelines
-/[Aa]ssets/Tutorials
+/[Aa]ssets/Animations/
+/[Aa]ssets/Art/
+/[Aa]ssets/Audio/
+/[Aa]ssets/ModularTrackKit/
+/[Aa]ssets/PhysicsMaterials/
+/[Aa]ssets/ScriptableObjects/
+/[Aa]ssets/Timelines/
+/[Aa]ssets/Tutorials/
+/[Aa]ssets/ML-Agents/
+/[Aa]ssets/ModAssets/
+/[Aa]ssets/Rendering/
+/[Aa]ssets/TextMesh Pro/
+
 /[Aa]ssets/KartingMicrogame_README.txt
 /[Aa]ssets/ThirdPartyNotice.txt
-/[Aa]ssets/ML-Agents
-/[Aa]ssets/ModAssets
-/[Aa]ssets/Rendering
-/[Aa]ssets/TextMesh Pro
 
-/[Aa]ssets/[Ss]cripts/AI
-/[Aa]ssets/[Ss]cripts/Editor
-/[Aa]ssets/[Ss]cripts/GameModels
-/[Aa]ssets/[Ss]cripts/UI
-/[Aa]ssets/[Ss]cripts/Track
+/[Aa]ssets/[Ss]cripts/AI/
+/[Aa]ssets/[Ss]cripts/Editor/
+/[Aa]ssets/[Ss]cripts/GameModels/
+/[Aa]ssets/[Ss]cripts/UI/
+/[Aa]ssets/[Ss]cripts/Track/
 
 /[Aa]ssets/[Ss]cripts/ArcadeKartPowerup.cs
 /[Aa]ssets/[Ss]cripts/AudioManager.cs
