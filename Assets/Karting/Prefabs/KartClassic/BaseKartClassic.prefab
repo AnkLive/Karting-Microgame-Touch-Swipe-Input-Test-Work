@@ -136,7 +136,8 @@ GameObject:
   - component: {fileID: 4895846115232909978}
   - component: {fileID: 4895846115232909977}
   - component: {fileID: 4895846115232909981}
-  - component: {fileID: 7341330589500240362}
+  - component: {fileID: 81521332543618345}
+  - component: {fileID: 4162503244866143481}
   - component: {fileID: 4895846115232909958}
   - component: {fileID: 4895846115232909976}
   m_Layer: 2
@@ -261,7 +262,19 @@ MonoBehaviour:
   rearRightWheel:
     wheelTransform: {fileID: 0}
     wheelCollider: {fileID: 4895846115625279582}
---- !u!114 &7341330589500240362
+--- !u!114 &81521332543618345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4895846115232909980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa83312769fb4849b7386ec36ead12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4162503244866143481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,6 +289,7 @@ MonoBehaviour:
   TurnInputName: Horizontal
   AccelerateButtonName: Accelerate
   BrakeButtonName: Brake
+  SwipeDirection: {x: 0, y: 0}
 --- !u!114 &4895846115232909958
 MonoBehaviour:
   m_ObjectHideFlags: 0
