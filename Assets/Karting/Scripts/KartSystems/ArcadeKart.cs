@@ -312,16 +312,8 @@ namespace KartGame.KartSystems
             // apply vehicle physics
             if (m_CanMove)
             {
-                //Debug.Log(Input.Accelerate);
-                if(Input.Accelerate)
-                {
-                    Debug.Log("touch");
-                    MoveVehicle(Input.Accelerate, Input.Brake, Input.TurnInput);
-                }
-                else
-                {
-                    MoveVehicle(Input.Accelerate, Input.Brake, Input.TurnInput);
-                }
+                MoveVehicle(Input.Accelerate, Input.Brake, Input.TurnInput);
+                Debug.Log(Input.TurnInput);
             }
             GroundAirbourne();
 
@@ -424,6 +416,7 @@ namespace KartGame.KartSystems
 
         void MoveVehicle(bool accelerate, bool brake, float turnInput)
         {
+            Debug.Log(turnInput);
             float accelInput = (accelerate ? 1.0f : 0.0f) - (brake ? 1.0f : 0.0f);
 
             // manual acceleration curve coefficient scalar
@@ -511,7 +504,7 @@ namespace KartGame.KartSystems
                 float velocitySteering = 25f;
 
                 // If the karts lands with a forward not in the velocity direction, we start the drift
-                if (GroundPercent >= 0.0f && m_PreviousGroundPercent < 0.1f)
+                if (GroundPercent >= 0.0f)
                 {
                     Vector3 flattenVelocity = Vector3.ProjectOnPlane(Rigidbody.velocity, m_VerticalReference).normalized;
                     if (Vector3.Dot(flattenVelocity, transform.forward * Mathf.Sign(accelInput)) < Mathf.Cos(MinAngleToFinishDrift * Mathf.Deg2Rad))
