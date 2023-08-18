@@ -12,6 +12,16 @@ namespace KartGame.KartSystems {
 
         private bool _isSwiping;
 
+        public DisplayMessage throwBackDisplayMessage;
+        public DisplayMessage throwForwardDisplayMessage;
+
+
+        private void Start() 
+        {
+            throwBackDisplayMessage.gameObject.SetActive(false);
+            throwForwardDisplayMessage.gameObject.SetActive(false);
+        }
+
         void FixedUpdate()
         {
             if(Input.touchCount > 0)
@@ -48,9 +58,9 @@ namespace KartGame.KartSystems {
             if(SwipeEvent != null)
             {
                 if(Mathf.Abs(_swipeDelta.x) > Mathf.Abs(_swipeDelta.y))
-                    SwipeEvent(touch.deltaPosition.normalized);
+                    SwipeEvent(new Vector2(touch.deltaPosition.normalized.x, 0));       
                 else    
-                    SwipeEvent(_swipeDelta.y > 0 ? Vector2.up : Vector2.down); 
+                    SwipeEvent(new Vector2(0, touch.deltaPosition.normalized.y));
             }
         }
 
@@ -58,15 +68,20 @@ namespace KartGame.KartSystems {
         {
             Touch touch = Input.GetTouch(0);
 
+            if(touch.deltaPosition.normalized.y > 0)
+            {
+                throwBackDisplayMessage.gameObject.SetActive(true);
+            }
+            else if(touch.deltaPosition.normalized.y < 0)
+            {
+                throwForwardDisplayMessage.gameObject.SetActive(true);
+            }
             if(SwipeEvent != null)
             {
                 if(Mathf.Abs(_swipeDelta.x) > Mathf.Abs(_swipeDelta.y))
-                    SwipeEvent(touch.deltaPosition.normalized);
-                    
+                    SwipeEvent(new Vector2(touch.deltaPosition.normalized.x, 0));       
                 else    
-                    SwipeEvent(_swipeDelta.y > 0 ? Vector2.up : Vector2.down);
-
-                Debug.Log(Mathf.Abs(touch.deltaPosition.normalized.x));
+                    SwipeEvent(new Vector2(0, touch.deltaPosition.normalized.y));
             }
         }
 
@@ -76,6 +91,8 @@ namespace KartGame.KartSystems {
 
             _tapPosition = Vector2.zero;
             _swipeDelta = Vector2.zero;
+            throwBackDisplayMessage.gameObject.SetActive(false);     
+            throwForwardDisplayMessage.gameObject.SetActive(false);    
         }
     }
 }
