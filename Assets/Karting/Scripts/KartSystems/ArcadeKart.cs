@@ -313,7 +313,6 @@ namespace KartGame.KartSystems
             if (m_CanMove)
             {
                 MoveVehicle(Input.Accelerate, Input.Brake, Input.TurnInput);
-                Debug.Log(Input.TurnInput);
             }
             GroundAirbourne();
 
@@ -416,7 +415,6 @@ namespace KartGame.KartSystems
 
         void MoveVehicle(bool accelerate, bool brake, float turnInput)
         {
-            Debug.Log(turnInput);
             float accelInput = (accelerate ? 1.0f : 0.0f) - (brake ? 1.0f : 0.0f);
 
             // manual acceleration curve coefficient scalar

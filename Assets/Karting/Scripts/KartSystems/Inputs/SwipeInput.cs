@@ -7,20 +7,15 @@ namespace KartGame.KartSystems {
         public delegate void OnSwipeInput(Vector2 direction);
         public static event OnSwipeInput SwipeEvent;
 
+        public delegate void OnMessageOutput(bool isSwipe, float directionSwipe);
+        public static event OnMessageOutput MessageOutputEvent;
+
         private Vector2 _tapPosition;
         private Vector2 _swipeDelta;
 
+        [SerializeField] private float swipeEndZone;
+
         private bool _isSwiping;
-
-        public DisplayMessage throwBackDisplayMessage;
-        public DisplayMessage throwForwardDisplayMessage;
-
-
-        private void Start() 
-        {
-            throwBackDisplayMessage.gameObject.SetActive(false);
-            throwForwardDisplayMessage.gameObject.SetActive(false);
-        }
 
         void FixedUpdate()
         {
@@ -48,40 +43,47 @@ namespace KartGame.KartSystems {
         {
             _swipeDelta = Vector2.zero;
 
-            Touch touch = Input.GetTouch(0);
+            if(Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
 
-            if(_isSwiping)
-            {
-                if(Input.touchCount > 0)
-                    _swipeDelta = Input.GetTouch(0).position - _tapPosition;
-            }
-            if(SwipeEvent != null)
-            {
-                if(Mathf.Abs(_swipeDelta.x) > Mathf.Abs(_swipeDelta.y))
-                    SwipeEvent(new Vector2(touch.deltaPosition.normalized.x, 0));       
-                else    
-                    SwipeEvent(new Vector2(0, touch.deltaPosition.normalized.y));
+                if(_isSwiping)
+                {
+                    if(Input.touchCount > 0)
+                        _swipeDelta = Input.GetTouch(0).position - _tapPosition;
+                }
+                if(_swipeDelta.normalized.x < swipeEndZone)
+                {
+                    if(SwipeEvent != null)
+                    {
+                        if(Mathf.Abs(_swipeDelta.x) > Mathf.Abs(_swipeDelta.y))
+                            SwipeEvent(new Vector2(touch.deltaPosition.normalized.x, 0));       
+                        else    
+                            SwipeEvent(new Vector2(0, touch.deltaPosition.normalized.y));
+                    }
+                }
             }
         }
 
         private void MoveSwipe()
         {
-            Touch touch = Input.GetTouch(0);
+            if(Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
 
-            if(touch.deltaPosition.normalized.y > 0)
-            {
-                throwBackDisplayMessage.gameObject.SetActive(true);
-            }
-            else if(touch.deltaPosition.normalized.y < 0)
-            {
-                throwForwardDisplayMessage.gameObject.SetActive(true);
-            }
-            if(SwipeEvent != null)
-            {
-                if(Mathf.Abs(_swipeDelta.x) > Mathf.Abs(_swipeDelta.y))
-                    SwipeEvent(new Vector2(touch.deltaPosition.normalized.x, 0));       
-                else    
-                    SwipeEvent(new Vector2(0, touch.deltaPosition.normalized.y));
+                if(_swipeDelta.y > swipeEndZone)
+                {
+                    if(SwipeEvent != null)
+                    {
+                        if(Mathf.Abs(_swipeDelta.x) > Mathf.Abs(_swipeDelta.y))
+                            SwipeEvent(new Vector2(touch.deltaPosition.normalized.x, 0));       
+                        else    
+                            SwipeEvent(new Vector2(0, touch.deltaPosition.normalized.y));
+                    }
+                }
+                
+                if (touch.deltaPosition.y >= 10f || touch.deltaPosition.y <= -10f)
+                        MessageOutputEvent?.Invoke(true, touch.deltaPosition.normalized.y);
             }
         }
 
@@ -91,8 +93,8 @@ namespace KartGame.KartSystems {
 
             _tapPosition = Vector2.zero;
             _swipeDelta = Vector2.zero;
-            throwBackDisplayMessage.gameObject.SetActive(false);     
-            throwForwardDisplayMessage.gameObject.SetActive(false);    
+
+            MessageOutputEvent?.Invoke(false, 0);  
         }
     }
 }
