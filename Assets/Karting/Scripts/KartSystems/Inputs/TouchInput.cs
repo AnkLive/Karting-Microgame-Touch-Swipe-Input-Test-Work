@@ -7,8 +7,10 @@ namespace KartGame.KartSystems
     {   
         private Vector2 SwipeDirection;
 
+        //подписываемся на событие свайпа
         private void Awake() => SwipeInput.SwipeEvent += OnSwipe;
 
+        //получаем направление свайпа
         private void OnSwipe(Vector2 direction) => SwipeDirection = direction;
 
         public override InputData GenerateInput() 
@@ -19,5 +21,8 @@ namespace KartGame.KartSystems
                 TurnInput = SwipeDirection.x
             };
         }
+
+        //отписываемся от события свайпа
+        private void OnDestroy() => SwipeInput.SwipeEvent -= OnSwipe;
     }
 }

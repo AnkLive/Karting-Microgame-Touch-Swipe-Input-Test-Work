@@ -5,26 +5,28 @@ namespace KartGame.KartSystems
 {
     public class SwipeMessage : MonoBehaviour
     {
+        //получаем данные об экранах сообщений
         [SerializeField] private DisplayMessage throwBackDisplayMessage;
         [SerializeField] private DisplayMessage throwForwardDisplayMessage;
 
+        //устанавливаем ограничение по времени для появления сообщения
         [SerializeField, Range(0, 2)] private float timeForAQuickSwipe;
 
+        //устанавливаем проверку на возможность вывода сообщения
         private bool nextMessage = true;
 
+        //подписываемся на событие вывода сообщения
         private void Awake() => SwipeInput.MessageOutputEvent += ShowMessage;
 
+        //скрываем панели сообщений
+        private void Start() => HideDisplayMessage();
 
-        private void Start() 
-        {
-            throwBackDisplayMessage.gameObject.SetActive(false);
-            throwForwardDisplayMessage.gameObject.SetActive(false);
-        }
-
+        //показываем сообщения
         private void ShowMessage(bool isSwipe, float directionSwipe)
         {
             if(nextMessage)
             {
+                //в зависимости от направления показываем сообщение о броске
                 if(directionSwipe > 0)
                     throwForwardDisplayMessage.gameObject.SetActive(true);
                 else if(directionSwipe < 0)
@@ -32,9 +34,12 @@ namespace KartGame.KartSystems
 
                 nextMessage = false;
             }
+
+            //запускаем таймер, по истечению времени которого панели сообщений будут скрыты
             StartCoroutine(HideDisplayMessageAfterTime(timeForAQuickSwipe));
         }
 
+        //скрываем панели сообщений
         private void HideDisplayMessage()
         {
             throwBackDisplayMessage.gameObject.SetActive(false);     
